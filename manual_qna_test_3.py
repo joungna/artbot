@@ -16,7 +16,7 @@ def load_vector_db(index_name, openai_api_key):
         if not os.path.exists(index_path):
             st.error(f"FAISS 인덱스 파일 '{index_name}'을 찾을 수 없습니다.")
             return None
-        return FAISS.load_local(index_path, embeddings, allow_dangerous_deserialization=True)
+        return FAISS.load_local(index_path, embeddings)
     except Exception as e:
         st.error(f"벡터 데이터베이스 로드 중 오류 발생: {str(e)}")
         return None
